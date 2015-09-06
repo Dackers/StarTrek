@@ -52,8 +52,8 @@
           <argument>
             <kind>1</kind>
             <string>//Set starfield parrallax scroll speed
-ScrollSpeedX = -(obj_Player.phy_linear_velocity_x / 10);
-ScrollSpeedY = -(obj_Player.phy_linear_velocity_y / 10);
+ScrollSpeedX = -(obj_player.phy_linear_velocity_x / 250);
+ScrollSpeedY = -(obj_player.phy_linear_velocity_y / 250);
 Feryx_starfield_Speed(ScrollSpeedX, ScrollSpeedY);
 Feryx_starfield_stepp();
 </string>

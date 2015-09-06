@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,58 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-enum state
-{
-    idle,
-    patrol,
-    attack,
-    flee
-};
-*/
+            <string>var xTo,yTo;
+var camBoundary = view_hport/4;
+//Setsup the camera direction (which is why speed is zero)
+move_towards_point(mouse_x,mouse_y,0);
+//Coordinates for mouse, with 96 pixel max distance to stray from player
+xTo = obj_player.x + lengthdir_x(min(camBoundary,distance_to_point(mouse_x,mouse_y)),direction);
+yTo = obj_player.y + lengthdir_y(min(camBoundary,distance_to_point(mouse_x,mouse_y)),direction);
+//Smooth camera movement (slows as camera reaches destination so as to not appear to snap
+//The smaller the distance between where camera is going and where it is the slower the
+//camera moves
+x += (xTo-x)/25;
+y += (yTo-y)/25;
+//Have view follow camera
+//Center view on the camera by taking the top left corner of view window and moving it back
+//one-half the width/height of view. Can't just set view to x/y of player because that would
+//set top left corner to player's x/y coord
+view_xview = -(view_wview/2) + x;
+view_yview = -(view_hview/2) + y;
+//Prevent camera from roaming outside room by clamping view to minimum of 0
+//and maximum of room wthd/height minus the view withd/height
+view_xview = clamp(view_xview,0,room_width-view_wview);
+view_yview = clamp(view_yview,0,room_height-view_hview);
 </string>
           </argument>
         </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//flag = phy_debug_render_aabb | phy_debug_render_collision_pairs | phy_debug_render_obb;
-//physics_world_draw_debug(flag);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>331</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_restart_game</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
   </events>

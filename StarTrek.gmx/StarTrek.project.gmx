@@ -9,16 +9,17 @@
     <extension index="1">extensions\EasyEnemyAI OverWorld</extension>
   </NewExtensions>
   <sounds name="sound">
-    <sound>sound\snd_Torpedo</sound>
-    <sound>sound\snd_Phaser</sound>
+    <sound>sound\snd_torpedo</sound>
+    <sound>sound\snd_phaser</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_Player</sprite>
-    <sprite>sprites\spr_Torpedo</sprite>
-    <sprite>sprites\spr_Phaser</sprite>
+    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_torpedo</sprite>
+    <sprite>sprites\spr_phaser</sprite>
     <sprite>sprites\sprite4</sprite>
     <sprite>sprites\sprite3</sprite>
-    <sprite>sprites\spr_Klingon</sprite>
+    <sprite>sprites\spr_klingon</sprite>
+    <sprite>sprites\spr_planet</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -30,15 +31,38 @@
       <script>scripts\Feryx_starfield_Rand.gml</script>
       <script>scripts\Feryx_starfield_freeMemory.gml</script>
     </scripts>
+    <script>scripts\scr_ai.gml</script>
+    <script>scripts\instance_nth_nearest.gml</script>
+    <script>scripts\turn_toward_direction.gml</script>
+    <scripts name="FSM Scripts">
+      <script>scripts\state_machine_init.gml</script>
+      <script>scripts\state_create.gml</script>
+      <script>scripts\state_cleanup.gml</script>
+      <script>scripts\state_execute.gml</script>
+      <script>scripts\state_init.gml</script>
+      <script>scripts\state_switch.gml</script>
+      <script>scripts\state_switch_previous.gml</script>
+      <script>scripts\state_update.gml</script>
+    </scripts>
+    <scripts name="States">
+      <script>scripts\state_idle.gml</script>
+      <script>scripts\state_patrol.gml</script>
+      <script>scripts\state_attack.gml</script>
+      <script>scripts\state_flee.gml</script>
+    </scripts>
+    <script>scripts\health_regen.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_Player</object>
-    <object>objects\obj_Torpedo</object>
-    <object>objects\obj_Phaser</object>
-    <object>objects\obj_Starfield</object>
-    <object>objects\obj_Klingon</object>
-    <object>objects\obj_Enemy</object>
-    <object>objects\obj_Control</object>
+    <object>objects\obj_player</object>
+    <object>objects\obj_torpedo</object>
+    <object>objects\obj_phaser</object>
+    <object>objects\obj_starfield</object>
+    <object>objects\obj_klingon</object>
+    <object>objects\obj_enemy</object>
+    <object>objects\obj_control</object>
+    <object>objects\obj_spawn</object>
+    <object>objects\obj_planet</object>
+    <object>objects\obj_camera</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Level01</room>

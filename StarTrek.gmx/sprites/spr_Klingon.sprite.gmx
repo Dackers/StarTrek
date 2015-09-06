@@ -20,6 +20,6 @@
   <width>86</width>
   <height>64</height>
   <frames>
-    <frame index="0">images\spr_Klingon_0.png</frame>
+    <frame index="0">images\spr_klingon_0.png</frame>
   </frames>
 </sprite>
